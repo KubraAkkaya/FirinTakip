@@ -1,0 +1,38 @@
+﻿@using EntityLayer.Concrete
+@model List<Musteri>
+
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<table class="table table-bordered ">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>TelefonNo</th>
+        <th>Adres</th>
+        <th>Mail</th>
+        <th>Ekle</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Ad</td>
+            <td>@x.Soyad</td>
+            <td>@x.TelefonNo</td>
+            <td>@x.Adres</td>
+            <td>@x.Mail</td>
+            <td><a href="#" class="btn btn-success">Ekle</a></td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-info">Düzenle</a></td>
+            <td><a href="#" class="btn btn-warning">Mail Gönder</a></td>
+        </tr>
+    }
+
+</table>
+<br />

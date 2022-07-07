@@ -14,5 +14,7 @@ namespace FirinTakip.Controllers
             return View();
         }
 
+
+
     }
 }
