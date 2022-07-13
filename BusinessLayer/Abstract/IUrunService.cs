@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IMusteriService
+    public interface IUrunService
     {
-        List<Musteri> GetList();
-        void MusteriAdd(Musteri musteri);
+        List<Urun> GetList();
+        void UrunAdd(Urun urun);
     }
 }

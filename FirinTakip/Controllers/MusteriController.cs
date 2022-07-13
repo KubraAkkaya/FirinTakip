@@ -15,9 +15,10 @@ namespace FirinTakip.Controllers
     {
         MusteriManager mm=new MusteriManager(new EfMusteriDal());
         // GET: Musteri
-        public ActionResult Musteri()
+        public ActionResult Index()
         {
-            return View();
+            var MusteriValues = mm.GetList();
+            return View(MusteriValues);
         }
 
         public ActionResult GetMusteriList()
@@ -35,13 +36,12 @@ namespace FirinTakip.Controllers
         [HttpPost]
         public ActionResult AddMusteri(Musteri p)
         {
-            //mm.MusteriAddBL(p);
             MusteriValidator musteriValidator = new MusteriValidator(); 
             ValidationResult results=musteriValidator.Validate(p);
             if (results.IsValid)
             {
-                mm.MusteriAddBL(p);
-                return RedirectToAction("GetMusteriList");
+                mm.MusteriAdd(p);
+                return RedirectToAction("Index");
             }
             else
             {

@@ -23,7 +23,7 @@ namespace BusinessLayer.Concrete
             return _musteriDal.List(); //GenericRepository i kullanmış oluyoruz
         }
 
-        public void MusteriAddBL(Musteri musteri)
+        public void MusteriAdd(Musteri musteri)
         {
             _musteriDal.Insert(musteri);
         }

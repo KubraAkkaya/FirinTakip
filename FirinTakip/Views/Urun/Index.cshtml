@@ -1,4 +1,6 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Urun>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,20 +10,27 @@
 <table class="table table-bordered ">
     <tr>
         <th>ID</th>
-        <th>İsim</th>
+        <th>Urun İsmi</th>
+        <th>Urun Etiket Adı</th>
+        <th>Fiyat</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
     </tr>
-    @*@foreach(var item in Model)
-        {
-            <tr>
-                <th>@item.ID</th>
-                <th>@item.AD</th>
-                <th>@item.</th>
-            </tr>
-        }*@
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.ID</th>
+            <th>@x.UrunAdi</th>
+            <th>@x.UrunEtiket</th>
+            <th>@x.Fiyat</th>
+            <td><a href="#" class="btn btn-info">Düzenle</a></td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
 
 </table>
-<br />
 
-<a href="" class="btn btn-info">Ekle</a>
-<a href="" class="btn btn-danger">Sil</a>
-<a href="" class="btn btn-warning">Düzenle</a>
+<td><a href="/Urun/AddUrun" class="btn btn-success">Urun Ekle</a></td>
+<br />
+ 

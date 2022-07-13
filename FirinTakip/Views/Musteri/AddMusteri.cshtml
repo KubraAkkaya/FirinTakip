@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Musteri
+
+@{
+    ViewBag.Title = "AddMusteri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Müşteri Ekleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("AddMusteri", "Musteri", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Musteri Adı")
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Ad)
+        <br /><br />
+        @Html.Label("Soyad Yazınız")
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Soyad)
+        <br /><br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}

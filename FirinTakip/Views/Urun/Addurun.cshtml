@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.Urun
+@{
+    ViewBag.Title = "Addurun";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Müşteri Ekleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("AddUrun", "Urun", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Urun Adı")
+        @Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunAdi)
+        <br /><br />
+        @Html.Label("Urun Etiket İsmini Yazınız")
+        @Html.TextBoxFor(x => x.UrunEtiket, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunEtiket)
+        <br /><br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}
+
