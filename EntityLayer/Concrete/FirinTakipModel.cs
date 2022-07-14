@@ -5,21 +5,20 @@ using System.Linq;
 
 namespace EntityLayer.Concrete
 {
-    public class FirinTakipModel : DbContext
+    public partial class FirinTakipModel : DbContext
     {
         public FirinTakipModel()
             : base("name=FirinTakipModel")
         {
         }
 
-        public  DbSet<Fatura> Faturas { get; set; }
-        public  DbSet<Musteri> Musteris { get; set; }
-        public  DbSet<ServisAraci> ServisAracis { get; set; }
-        public  DbSet<Sipari> Siparis { get; set; }
-        public  DbSet<Talep> Taleps { get; set; }
-        public  DbSet<TeslimFisi> TeslimFisis { get; set; }
-        public  DbSet<Urun> Uruns { get; set; }
-        public  DbSet<UrunEtiket> UrunEtikets { get; set; }
+        public virtual DbSet<Fatura> Faturas { get; set; }
+        public virtual DbSet<Musteri> Musteris { get; set; }
+        public virtual DbSet<ServisAraci> ServisAracis { get; set; }
+        public virtual DbSet<Sipari> Siparis { get; set; }
+        public virtual DbSet<Talep> Taleps { get; set; }
+        public virtual DbSet<TeslimFisi> TeslimFisis { get; set; }
+        public virtual DbSet<Urun> Uruns { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -64,15 +63,6 @@ namespace EntityLayer.Concrete
             modelBuilder.Entity<Urun>()
                 .HasMany(e => e.Siparis)
                 .WithRequired(e => e.Urun)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<UrunEtiket>()
-                .Property(e => e.EtiketAdi)
-                .IsFixedLength();
-
-            modelBuilder.Entity<UrunEtiket>()
-                .HasMany(e => e.Uruns)
-                .WithRequired(e => e.UrunEtiket)
                 .WillCascadeOnDelete(false);
         }
     }

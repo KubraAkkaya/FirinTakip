@@ -19,16 +19,14 @@ namespace EntityLayer.Concrete
 
         public string UrunAdi { get; set; }
 
-        public int UrunEtiketID { get; set; }
-
         [Column(TypeName = "money")]
         public decimal? Fiyat { get; set; }
+
+        public bool? TatliMi { get; set; }
 
         public bool? Aktiflik { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sipari> Siparis { get; set; }
-
-        public virtual UrunEtiket UrunEtiket { get; set; }
     }
 }

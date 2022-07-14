@@ -58,7 +58,6 @@
     <Compile Include="Abstract\ISiparisDal.cs" />
     <Compile Include="Abstract\ITalepDal.cs" />
     <Compile Include="Abstract\IUrunDal.cs" />
-    <Compile Include="Abstract\IUrunEtiketDal.cs" />
     <Compile Include="Concrete\Repository\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfFaturaDal.cs" />
     <Compile Include="EntityFramework\EfMusteriDal.cs" />
@@ -67,7 +66,6 @@
     <Compile Include="EntityFramework\EfTalepDal.cs" />
     <Compile Include="EntityFramework\EfTeslimFisiDal.cs" />
     <Compile Include="EntityFramework\EfUrunDal.cs" />
-    <Compile Include="EntityFramework\EFUrunEtiketDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -58,7 +58,6 @@
     <Compile Include="Concrete\Talep.cs" />
     <Compile Include="Concrete\TeslimFisi.cs" />
     <Compile Include="Concrete\Urun.cs" />
-    <Compile Include="Concrete\UrunEtiket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
