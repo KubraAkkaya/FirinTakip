@@ -21,13 +21,13 @@ namespace FirinTakip.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddUrun()
+        public ActionResult AddSipari()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddUrun(Urun p)
+        public ActionResult AddSipari(Urun p)
         {
             UrunValidator urunValidator=new UrunValidator();
             ValidationResult results = urunValidator.Validate(p);

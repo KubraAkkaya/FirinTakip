@@ -2541,6 +2541,7 @@
     <Content Include="Views\Musteri\Index.cshtml" />
     <Content Include="Views\Urun\Addurun.cshtml" />
     <Content Include="Views\Musteri\AddMusteri.cshtml" />
+    <Content Include="Views\Siparis\AddSipari.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

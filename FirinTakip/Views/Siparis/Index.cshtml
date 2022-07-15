@@ -1,8 +1,43 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Sipari>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+
+<br />
+<table class="table table-bordered ">
+    <tr>
+        <th>ID</th>
+        <th>Urun İsmi</th>
+        <th>Müşteri ID</th>
+        <th>Adet</th>
+        <th>Tarih</th>
+        <th>Ödeme Şekli</th>
+        <th>Servis Aracı</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.ID</th>
+            <th>@x.UrunID</th>
+            <th>@x.MusteriID</th>
+            <th>@x.Adet</th>
+            <th>@x.Tarih</th>
+            <th>@x.OdemeSekli</th>
+            <th>@x.ServisAraci.Ad</th>
+            <td><a href="#" class="btn btn-info">Düzenle</a></td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+
+</table>
+
+<td><a href="/Siparis/AddSipari" class="btn btn-success">Siparis Ekle</a></td>
+<br />
+
 
