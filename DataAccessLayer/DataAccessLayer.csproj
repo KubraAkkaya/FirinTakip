@@ -57,6 +57,7 @@
     <Compile Include="Abstract\IServisAraciDal.cs" />
     <Compile Include="Abstract\ISiparisDal.cs" />
     <Compile Include="Abstract\ITalepDal.cs" />
+    <Compile Include="Abstract\ITeslimFisiDal.cs" />
     <Compile Include="Abstract\IUrunDal.cs" />
     <Compile Include="Concrete\Repository\GenericRepository.cs" />
     <Compile Include="EntityFramework\EfFaturaDal.cs" />

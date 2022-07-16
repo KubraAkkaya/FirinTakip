@@ -139,6 +139,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MusteriController.cs" />
     <Compile Include="Controllers\SiparisController.cs" />
@@ -2542,6 +2543,7 @@
     <Content Include="Views\Urun\Addurun.cshtml" />
     <Content Include="Views\Musteri\AddMusteri.cshtml" />
     <Content Include="Views\Siparis\AddSipari.cshtml" />
+    <Content Include="Views\Fatura\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
