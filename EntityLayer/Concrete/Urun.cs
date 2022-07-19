@@ -19,6 +19,9 @@ namespace EntityLayer.Concrete
 
         public string UrunAdi { get; set; }
 
+        [Column("Almanca Adı")]
+        public string Almanca_Adı { get; set; }
+
         [Column(TypeName = "money")]
         public decimal? Fiyat { get; set; }
 

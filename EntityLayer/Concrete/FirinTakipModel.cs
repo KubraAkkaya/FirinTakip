@@ -12,6 +12,7 @@ namespace EntityLayer.Concrete
         {
         }
 
+        public virtual DbSet<Adre> Adres { get; set; }
         public virtual DbSet<Fatura> Faturas { get; set; }
         public virtual DbSet<Musteri> Musteris { get; set; }
         public virtual DbSet<ServisAraci> ServisAracis { get; set; }
@@ -22,13 +23,21 @@ namespace EntityLayer.Concrete
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Adre>()
+                .Property(e => e.Mahalle)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Adre>()
+                .Property(e => e.Sokak)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Adre>()
+                .Property(e => e.Cadde)
+                .IsFixedLength();
+
             modelBuilder.Entity<Musteri>()
                 .Property(e => e.TelefonNo)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Musteri>()
-                .Property(e => e.Adres)
-                .IsFixedLength();
 
             modelBuilder.Entity<Musteri>()
                 .HasMany(e => e.Siparis)
@@ -40,7 +49,7 @@ namespace EntityLayer.Concrete
                 .IsFixedLength();
 
             modelBuilder.Entity<ServisAraci>()
-                .Property(e => e.Adres)
+                .Property(e => e.Bolge)
                 .IsFixedLength();
 
             modelBuilder.Entity<Sipari>()

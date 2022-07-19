@@ -21,7 +21,7 @@ namespace EntityLayer.Concrete
         public string Ad { get; set; }
 
         [StringLength(10)]
-        public string Adres { get; set; }
+        public string Bolge { get; set; }
 
         public bool? Aktiflik { get; set; }
 

@@ -11,6 +11,11 @@ namespace FirinTakip.Controllers
     public class FaturaController : Controller
     {
         FaturaManager fm = new FaturaManager(new EfFaturaDal());
+        public class FaturaBilgileri
+        {
+            public DateTime FaturaTarihi { get; set; }
+            public string MusteriAdi { get; set; }
+        }
         public ActionResult Index()
         {
             var faturaValues = fm.GetList();

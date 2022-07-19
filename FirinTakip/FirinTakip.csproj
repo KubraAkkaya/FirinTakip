@@ -2540,7 +2540,7 @@
     <Content Include="Views\Urun\Index.cshtml" />
     <Content Include="Views\Siparis\Index.cshtml" />
     <Content Include="Views\Musteri\Index.cshtml" />
-    <Content Include="Views\Urun\Addurun.cshtml" />
+    <Content Include="Views\Urun\AddUrun.cshtml" />
     <Content Include="Views\Musteri\AddMusteri.cshtml" />
     <Content Include="Views\Siparis\AddSipari.cshtml" />
     <Content Include="Views\Fatura\Index.cshtml" />
