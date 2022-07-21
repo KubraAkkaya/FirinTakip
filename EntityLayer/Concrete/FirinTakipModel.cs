@@ -12,26 +12,26 @@ namespace EntityLayer.Concrete
         {
         }
 
-        public virtual DbSet<Adre> Adres { get; set; }
+        public virtual DbSet<Adres> Adres { get; set; }
         public virtual DbSet<Fatura> Faturas { get; set; }
         public virtual DbSet<Musteri> Musteris { get; set; }
         public virtual DbSet<ServisAraci> ServisAracis { get; set; }
-        public virtual DbSet<Sipari> Siparis { get; set; }
+        public virtual DbSet<Siparis> Siparis { get; set; }
         public virtual DbSet<Talep> Taleps { get; set; }
         public virtual DbSet<TeslimFisi> TeslimFisis { get; set; }
         public virtual DbSet<Urun> Uruns { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Adre>()
+            modelBuilder.Entity<Adres>()
                 .Property(e => e.Mahalle)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Adre>()
+            modelBuilder.Entity<Adres>()
                 .Property(e => e.Sokak)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Adre>()
+            modelBuilder.Entity<Adres>()
                 .Property(e => e.Cadde)
                 .IsFixedLength();
 
@@ -52,13 +52,13 @@ namespace EntityLayer.Concrete
                 .Property(e => e.Bolge)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Sipari>()
+            modelBuilder.Entity<Siparis>()
                 .Property(e => e.OdemeSekli)
                 .IsFixedLength();
 
-            modelBuilder.Entity<Sipari>()
+            modelBuilder.Entity<Siparis>()
                 .HasMany(e => e.TeslimFisis)
-                .WithOptional(e => e.Sipari)
+                .WithOptional(e => e.Siparis)
                 .HasForeignKey(e => e.SiparisID);
 
             modelBuilder.Entity<Talep>()

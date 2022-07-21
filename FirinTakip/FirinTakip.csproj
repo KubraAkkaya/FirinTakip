@@ -144,6 +144,7 @@
     <Compile Include="Controllers\MusteriController.cs" />
     <Compile Include="Controllers\SiparisController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
+    <Compile Include="Dto\FaturaBilgileriDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2542,8 +2543,9 @@
     <Content Include="Views\Musteri\Index.cshtml" />
     <Content Include="Views\Urun\AddUrun.cshtml" />
     <Content Include="Views\Musteri\AddMusteri.cshtml" />
-    <Content Include="Views\Siparis\AddSipari.cshtml" />
     <Content Include="Views\Fatura\Index.cshtml" />
+    <Content Include="Views\Siparis\AddSiparis.cshtml" />
+    <Content Include="Views\Musteri\GetMusteriList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

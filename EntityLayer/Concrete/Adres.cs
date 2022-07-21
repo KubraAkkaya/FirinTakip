@@ -6,7 +6,7 @@ namespace EntityLayer.Concrete
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Adre
+    public partial class Adres
     {
         public int ID { get; set; }
 

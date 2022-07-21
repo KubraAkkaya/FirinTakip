@@ -1,15 +1,9 @@
 ﻿@using EntityLayer.Concrete
-@model List<Fatura>
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
-
-
+@model List<FirinTakip.Dto.FaturaBilgileriDto>
+@*@model List<Fatura>*@
 <br />
 <table class="table table-bordered ">
     <tr>
-        <th>ID</th>
         <th>Müşteri Adı</th>
         <th>Tarih</th>
         <th>Ödeme Durumu</th>
@@ -20,9 +14,8 @@
     @foreach (var x in Model)
     {
         <tr>
-            <td>@x.ID</td>
-            <td>@x.TeslimFisis</td> @*musteri adını nasıl getirebilirim*@
-            <td>@x.Tarih</td>
+            <td>@x.MusteriAdi</td>
+            <td>@x.FaturaTarihi</td> 
             <td>@x.OdemeDurumu</td>
             <td><a href="#" class="btn btn-warning">Düzenle</a></td>
             <td><a href="#" class="btn btn-danger">Sil</a></td>

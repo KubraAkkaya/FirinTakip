@@ -19,6 +19,6 @@ namespace EntityLayer.Concrete
 
         public virtual Fatura Fatura { get; set; }
 
-        public virtual Sipari Sipari { get; set; }
+        public virtual Siparis Siparis { get; set; }
     }
 }

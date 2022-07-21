@@ -1,8 +1,7 @@
 ﻿@using EntityLayer.Concrete
 @model List<Musteri>
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "GetMusteriList";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -20,15 +19,15 @@
         <th>Sil</th>
 
     </tr>
-    @foreach (var x in Model)
+    @foreach (var y in Model)
     {
         <tr>
-            <td>@x.ID</td>
-            <td>@x.Ad</td>
-            <td>@x.Soyad</td>
-            <td>@x.TelefonNo</td>
-            <td>@x.Adres</td> @*adres içeriklerini nasıl getirebilirim*@
-            <td>@x.Mail</td>
+            <td>@y.ID</td>
+            <td>@y.Ad</td>
+            <td>@y.Soyad</td>
+            <td>@y.TelefonNo</td>
+            <td>@y.Adres</td> @*adres içeriklerini nasıl getirebilirim*@
+            <td>@y.Mail</td>
             <td><a href="#" class="btn btn-warning">Düzenle</a></td>
             <td><a href="#" class="btn btn-info">Mail Gönder</a></td>
             <td><a href="/Musteri/DeleteMusteri/@x.ID" class="btn btn-danger">Sil</a></td>
@@ -39,7 +38,4 @@
 </table>
 <br />
 <td><a href="/Musteri/AddMusteri" class="btn btn-info">Ekle</a></td>
-
-@*otomatik mail gönderme eklenecek*@
-
 

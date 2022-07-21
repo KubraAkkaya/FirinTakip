@@ -1,13 +1,12 @@
-﻿@model EntityLayer.Concrete.Sipari
-
+﻿@model EntityLayer.Concrete.Siparis
 @{
-    ViewBag.Title = "AddSipari";
+    ViewBag.Title = "AddSiparis";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <h1>Yeni Sipariş Ekleme Sayfası</h1>
 <br />
-@using (Html.BeginForm("AddSipari", "Sipari", FormMethod.Post))
+@using (Html.BeginForm("AddSiparis", "Siparis", FormMethod.Post))
 {
     <div class="form-group">
         @Html.Label("Urun Adı")

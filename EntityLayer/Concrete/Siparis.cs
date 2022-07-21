@@ -6,10 +6,10 @@ namespace EntityLayer.Concrete
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Sipari
+    public partial class Siparis
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sipari()
+        public Siparis()
         {
             TeslimFisis = new HashSet<TeslimFisi>();
         }

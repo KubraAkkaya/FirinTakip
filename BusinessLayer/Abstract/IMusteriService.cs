@@ -11,5 +11,7 @@ namespace BusinessLayer.Abstract
     {
         List<Musteri> GetList();
         void MusteriAdd(Musteri musteri);
+        Musteri GetByID(int id); 
+        void MusteriDelete(Musteri musteri);
     }
 }

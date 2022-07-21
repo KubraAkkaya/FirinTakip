@@ -10,7 +10,7 @@ namespace BusinessLayer.Abstract
     public interface ISiparisService
     {
 
-        List<Sipari> GetList();
-        void SiparisAdd(Sipari sipari);
+        List<Siparis> GetList();
+        void SiparisAdd(Siparis siparis);
     }
 }

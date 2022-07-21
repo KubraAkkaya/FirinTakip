@@ -12,8 +12,8 @@ namespace EntityLayer.Concrete
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Musteri()
         {
-            Adres = new HashSet<Adre>();
-            Siparis = new HashSet<Sipari>();
+            Adres = new HashSet<Adres>();
+            Siparis = new HashSet<Siparis>();
             Taleps = new HashSet<Talep>();
         }
 
@@ -36,10 +36,10 @@ namespace EntityLayer.Concrete
         public bool? Aktiflik { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Adre> Adres { get; set; }
+        public virtual ICollection<Adres> Adres { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sipari> Siparis { get; set; }
+        public virtual ICollection<Siparis> Siparis { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Talep> Taleps { get; set; }

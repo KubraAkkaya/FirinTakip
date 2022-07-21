@@ -20,12 +20,12 @@ namespace FirinTakip.Controllers
             return View(siparisValues);
         }
         [HttpGet]
-        public ActionResult AddSipari()
+        public ActionResult AddSiparis()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AddSipari(Sipari p)
+        public ActionResult AddSiparis(Siparis p)
         {
             SiparisValidator siparisValidator = new SiparisValidator();
             ValidationResult results = siparisValidator.Validate(p);

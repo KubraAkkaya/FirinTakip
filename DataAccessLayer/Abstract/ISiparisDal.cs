@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ISiparisDal : IRepository<Sipari>
+    public interface ISiparisDal : IRepository<Siparis>
     {
 
     }

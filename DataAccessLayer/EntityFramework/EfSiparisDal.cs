@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfSiparisDal : GenericRepository<Sipari>, ISiparisDal
+    public class EfSiparisDal : GenericRepository<Siparis>, ISiparisDal
     {
     }
 }

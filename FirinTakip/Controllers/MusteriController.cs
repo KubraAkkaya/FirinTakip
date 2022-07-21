@@ -14,8 +14,9 @@ namespace FirinTakip.Controllers
 {
     public class MusteriController : Controller
     {
-        MusteriManager mm=new MusteriManager(new EfMusteriDal());
+        MusteriManager mm = new MusteriManager(new EfMusteriDal());
         // GET: Musteri
+        FirinTakipModel db = new FirinTakipModel();
         public ActionResult Index()
         {
             var MusteriValues = mm.GetList();
@@ -37,22 +38,45 @@ namespace FirinTakip.Controllers
         [HttpPost]
         public ActionResult AddMusteri(Musteri p)
         {
-            MusteriValidator musteriValidator = new MusteriValidator(); 
-            ValidationResult results=musteriValidator.Validate(p);
-            if (results.IsValid)
+            try
             {
-                mm.MusteriAdd(p);
+
+
+                Musteri musteri = new Musteri();
+                musteri.Ad = "Gülşah";
+                musteri.Aktiflik = true;
+                musteri.Soyad = "TAN";
+                musteri.TelefonNo = "1111";
+                musteri.Mail = "dd@gmail.com";
+
+                //MusteriValidator musteriValidator = new MusteriValidator(); 
+                //ValidationResult results=musteriValidator.Validate(p);
+
+                db.Musteris.Add(musteri);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
+            catch (Exception)
             {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
+
+                throw;
             }
+            //}
+            //else
+            //{
+            //    foreach (var item in results.Errors)
+            //    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            //    }
+            //}
             return View();
         }
 
+        public ActionResult DeleteMusteri(int id)
+        {
+            var musteriValue = mm.GetByID(id);
+            mm.MusteriDelete(musteriValue);
+            return RedirectToAction("Index");
+        }
     }
 }

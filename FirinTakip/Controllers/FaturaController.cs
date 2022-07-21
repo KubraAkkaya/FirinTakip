@@ -1,5 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using FirinTakip.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +12,36 @@ namespace FirinTakip.Controllers
 {
     public class FaturaController : Controller
     {
-        FaturaManager fm = new FaturaManager(new EfFaturaDal());
-        public class FaturaBilgileri
-        {
-            public DateTime FaturaTarihi { get; set; }
-            public string MusteriAdi { get; set; }
-        }
+        //FaturaManager fm = new FaturaManager(new EfFaturaDal());
+        FirinTakipModel db = new FirinTakipModel();
+
         public ActionResult Index()
         {
-            var faturaValues = fm.GetList();
-            return View(faturaValues);
+            //var list = db.Musteris.Include(x => x.).Include(b => b. ).Select(k => new FaturaBilgileriDto
+            //{
+            //    FaturaTarihi = k.
+            //});
+            var list = from m in db.Musteris 
+                       join s in db.Siparis on m.ID equals s.MusteriID
+                       join f in db.Faturas on s.ID equals f.ID
+                       join u in db.Uruns on s.ID equals u.ID
+                       select new FaturaBilgileriDto
+                       {
+                           MusteriAdi = m.Ad,
+                           UrunAdi = u.UrunAdi,
+                           OdemeDurumu = f.OdemeDurumu,
+                           FaturaTarihi= f.Tarih
+                       };
+            //FaturaBilgileriDto dto = new FaturaBilgileriDto
+            //{
+            //    FaturaTarihi = DateTime.Now,
+            //    MusteriAdi = "gülşah",
+            //    OdemeDurumu = "ödendi",
+            //    UrunAdi = "bilgisayar"
+            //};
+
+            //var values = fm.GetList();
+            return View(list.ToList());
         }
     }
 }
