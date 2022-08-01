@@ -12,8 +12,7 @@ namespace EntityLayer.Concrete
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Musteri()
         {
-            Adres = new HashSet<Adres>();
-            Siparis = new HashSet<Siparis>();
+            Siparislers = new HashSet<Siparisler>();
             Taleps = new HashSet<Talep>();
         }
 
@@ -33,13 +32,12 @@ namespace EntityLayer.Concrete
 
         public string Mail { get; set; }
 
+        public string Adresi { get; set; }
+
         public bool? Aktiflik { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Adres> Adres { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Siparis> Siparis { get; set; }
+        public virtual ICollection<Siparisler> Siparislers { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Talep> Taleps { get; set; }

@@ -1,10 +1,16 @@
 ﻿@using EntityLayer.Concrete
 @model List<FirinTakip.Dto.FaturaBilgileriDto>
 @*@model List<Fatura>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
 <br />
 <table class="table table-bordered ">
     <tr>
         <th>Müşteri Adı</th>
+        <th>Ürün Adı</th>
         <th>Tarih</th>
         <th>Ödeme Durumu</th>
         <th>Düzenle</th>
@@ -15,15 +21,18 @@
     {
         <tr>
             <td>@x.MusteriAdi</td>
-            <td>@x.FaturaTarihi</td> 
+            <td>@x.UrunAdi</td>
+            <td>@x.FaturaTarihi</td>
             <td>@x.OdemeDurumu</td>
             <td><a href="#" class="btn btn-warning">Düzenle</a></td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Fatura/DeleteFatura/@x.ID" class="btn btn-danger">Sil</a></td> @*silme işlemi olmuyor!!!*@
 
         </tr>
     }
 
 </table>
 <br />
+
+
 
 

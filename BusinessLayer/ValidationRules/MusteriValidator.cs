@@ -13,7 +13,7 @@ namespace BusinessLayer.ValidationRules
         public MusteriValidator()
         {
             RuleFor(x => x.Ad).NotEmpty().WithMessage("Ad kısmını boş geçemezsiniz!");
-            RuleFor(x => x.Adres).NotEmpty().WithMessage("Adres kısmını boş geçemezsiniz!");
+            RuleFor(x => x.Adresi).NotEmpty().WithMessage("Adres kısmını boş geçemezsiniz!");
             RuleFor(x => x.Ad).MaximumLength(20).WithMessage("Lütfen 20 karakterden fazla değer girişi yapmayınız!");
             RuleFor(x => x.Ad).MinimumLength(3).WithMessage("Lütfen 3 karakterden az değer girişi yapmayınız!");
         }

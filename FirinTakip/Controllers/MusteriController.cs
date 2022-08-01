@@ -23,12 +23,6 @@ namespace FirinTakip.Controllers
             return View(MusteriValues);
         }
 
-        public ActionResult GetMusteriList()
-        {
-            var musteriValues = mm.GetList();
-            return View(musteriValues);
-        }
-
         [HttpGet]
         public ActionResult AddMusteri()
         {
@@ -40,17 +34,13 @@ namespace FirinTakip.Controllers
         {
             try
             {
-
-
                 Musteri musteri = new Musteri();
-                musteri.Ad = "Gülşah";
+                musteri.Ad = p.Ad;
                 musteri.Aktiflik = true;
-                musteri.Soyad = "TAN";
-                musteri.TelefonNo = "1111";
-                musteri.Mail = "dd@gmail.com";
-
-                //MusteriValidator musteriValidator = new MusteriValidator(); 
-                //ValidationResult results=musteriValidator.Validate(p);
+                musteri.Soyad = p.Soyad;
+                musteri.TelefonNo = p.TelefonNo;
+                musteri.Mail = p.Mail;
+                musteri.Adresi= p.Adresi;
 
                 db.Musteris.Add(musteri);
                 db.SaveChanges();
@@ -58,8 +48,12 @@ namespace FirinTakip.Controllers
             }
             catch (Exception)
             {
-
-                throw;
+                MusteriValidator musteriValidator = new MusteriValidator();
+                ValidationResult results = musteriValidator.Validate(p);
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
             }
             //}
             //else
@@ -69,6 +63,7 @@ namespace FirinTakip.Controllers
             //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
             //    }
             //}
+
             return View();
         }
 
@@ -76,6 +71,19 @@ namespace FirinTakip.Controllers
         {
             var musteriValue = mm.GetByID(id);
             mm.MusteriDelete(musteriValue);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateMusteri(int id)
+        {
+            var musteriValue = mm.GetByID(id);
+            return View(musteriValue);
+        }
+        [HttpPost]
+        public ActionResult UpdateMusteri(Musteri p)
+        {
+            mm.MusteriUpdate(p);
             return RedirectToAction("Index");
         }
     }

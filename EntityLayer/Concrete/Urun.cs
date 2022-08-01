@@ -12,15 +12,14 @@ namespace EntityLayer.Concrete
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Urun()
         {
-            Siparis = new HashSet<Siparis>();
+            Siparislers = new HashSet<Siparisler>();
         }
 
         public int ID { get; set; }
 
         public string UrunAdi { get; set; }
 
-        [Column("Almanca Adı")]
-        public string Almanca_Adı { get; set; }
+        public string AlmancaAdi { get; set; }
 
         [Column(TypeName = "money")]
         public decimal? Fiyat { get; set; }
@@ -30,6 +29,6 @@ namespace EntityLayer.Concrete
         public bool? Aktiflik { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Siparis> Siparis { get; set; }
+        public virtual ICollection<Siparisler> Siparislers { get; set; }
     }
 }

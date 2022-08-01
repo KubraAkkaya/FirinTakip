@@ -37,6 +37,11 @@ namespace BusinessLayer.Concrete
         {
             _musteriDal.Delete(musteri);
         }
+
+        public void MusteriUpdate(Musteri musteri)
+        {
+            _musteriDal.Update(musteri);
+        }
     }
 
 }

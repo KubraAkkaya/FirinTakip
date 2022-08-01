@@ -13,6 +13,7 @@ namespace FirinTakip.Controllers
 {
     public class SiparisController : Controller
     {
+        FirinTakipModel db = new FirinTakipModel();
         SiparisManager sm = new SiparisManager(new EfSiparisDal());
         public ActionResult Index()
         {
@@ -20,28 +21,60 @@ namespace FirinTakip.Controllers
             return View(siparisValues);
         }
         [HttpGet]
-        public ActionResult AddSiparis()
+        public ActionResult AddSiparisler()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult AddSiparis(Siparis p)
+        public ActionResult AddSiparisler(Siparisler p)
         {
-            SiparisValidator siparisValidator = new SiparisValidator();
-            ValidationResult results = siparisValidator.Validate(p);
-            if (results.IsValid)
+            try
             {
-                sm.SiparisAdd(p);
+                Siparisler siparis = new Siparisler();
+                siparis.UrunID = p.UrunID;
+                siparis.Aktiflik = true;
+                siparis.MusteriID = p.MusteriID;
+                siparis.Adet= p.Adet;
+                siparis.OdemeSekli= p.OdemeSekli;
+                siparis.Tarih = p.Tarih;
+
+                db.Siparislers.Add(siparis);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
+            catch (Exception)
             {
+                SiparisValidator siparisValidator = new SiparisValidator();
+                ValidationResult results = siparisValidator.Validate(p);
                 foreach (var item in results.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
+
+            //SiparisValidator siparisValidator = new SiparisValidator();
+            //ValidationResult results = siparisValidator.Validate(p);
+            //if (results.IsValid)
+            //{
+            //    sm.SiparisAdd(p);
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    foreach (var item in results.Errors)
+            //    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            //    }
+            //}
+
             return View();
         }
+        public ActionResult DeleteSiparisler(int id)
+        {
+            var siparisValue = sm.GetByID(id);
+            sm.SiparisDelete(siparisValue);
+            return RedirectToAction("Index");
+        }
+
     }
 }

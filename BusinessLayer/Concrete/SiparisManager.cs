@@ -18,14 +18,24 @@ namespace BusinessLayer.Concrete
             _siparisDal = siparisDal;
         }
 
-        public List<Siparis> GetList()
+        public Siparisler GetByID(int id)
+        {
+            return _siparisDal.Get(x => x.ID == id);
+        }
+
+        public List<Siparisler> GetList()
         {
             return _siparisDal.List();
         }
 
-        public void SiparisAdd(Siparis siparis)
+        public void SiparisAdd(Siparisler siparis)
         {
             _siparisDal.Insert(siparis);
+        }
+
+        public void SiparisDelete(Siparisler siparisler)
+        {
+            _siparisDal.Delete(siparisler);
         }
     }
 }

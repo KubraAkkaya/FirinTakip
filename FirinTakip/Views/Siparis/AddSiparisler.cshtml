@@ -1,0 +1,40 @@
+﻿@model EntityLayer.Concrete.Siparisler
+@{
+    ViewBag.Title = "AddSiparisler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Sipariş Ekleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("AddSiparisler", "Siparis", FormMethod.Post))
+{
+    <div class="form-group">
+
+        @Html.Label("Müşteri ID")
+        @Html.TextBoxFor(x => x.MusteriID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.MusteriID)
+        <br /><br />
+        @Html.Label("Urun ID")
+        @Html.TextBoxFor(x => x.UrunID, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunID)
+        <br /><br />
+        @Html.Label("Adet")
+        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Adet)
+        <br /><br />
+        @Html.Label(" Ödeme Şekli")
+        @Html.TextBoxFor(x => x.OdemeSekli, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.OdemeSekli)
+        <br /><br />
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Tarih)
+        <br /><br />
+        @Html.Label("Aktiflik ")
+        <span> : </span> @Html.CheckBoxFor(x => x.Aktiflik.Value, true)işaretli gelmiyorrrrr
+        @Html.ValidationMessageFor(x => x.Aktiflik)
+        <br /><br />
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+}
+

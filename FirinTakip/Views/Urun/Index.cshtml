@@ -10,8 +10,10 @@
 <table class="table table-bordered ">
     <tr>
         <th>ID</th>
-        <th>Urun İsmi</th>
+        <th>Urun Adı</th>
+        <th>Urun Almanca Adı</th>
         <th>Urun Tatlı Mı</th>
+        <th>aktiflik</th>
         <th>Fiyat</th>
         <th>Güncelle</th>
         <th>Sil</th>
@@ -21,10 +23,12 @@
         <tr>
             <th>@x.ID</th>
             <th>@x.UrunAdi</th>
+            <th>@x.AlmancaAdi</th>
             <th>@x.TatliMi</th>
+            <th>@x.Aktiflik</th>
             <th>@x.Fiyat</th>
-            <td><a href="#" class="btn btn-info">Düzenle</a></td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Urun/UpdateUrun/@x.ID" class="btn btn-info">Düzenle</a></td>
+            <td><a href="/Urun/DeleteUrun/@x.ID" class="btn btn-danger">Sil</a></td>
         </tr>
     }
 

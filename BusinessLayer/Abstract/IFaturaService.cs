@@ -10,5 +10,7 @@ namespace BusinessLayer.Abstract
     public interface IFaturaService
     {
         List<Fatura> GetList();
+        Fatura GetByID(int id);
+        void FaturaDelete(Fatura fatura);
     }
 }

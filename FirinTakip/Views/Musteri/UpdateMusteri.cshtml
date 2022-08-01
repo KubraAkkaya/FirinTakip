@@ -1,14 +1,12 @@
 ﻿@model EntityLayer.Concrete.Musteri
-
 @{
-    ViewBag.Title = "AddMusteri";
+    ViewBag.Title = "UpdateMusteri";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h1>Yeni Müşteri Ekleme Sayfası</h1>
 <br />
-@using (Html.BeginForm("AddMusteri", "Musteri", FormMethod.Post))
-{
+<h2>Müşteri Güncelleme Sayfası</h2>
+@using (Html.BeginForm("UpdateMusteri","Musteri",FormMethod.Post))
+ {
     <div class="form-group">
         @Html.Label("Musteri Adı")
         @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
@@ -34,6 +32,6 @@
         <span> | Aktiflik: </span> @Html.CheckBoxFor(x => x.Aktiflik.Value, true)işaretli gelmiyorrrrr
         @Html.ValidationMessageFor(x => x.Aktiflik)
         <br /><br />
-        <button class="btn btn-info">Kaydet</button>
+        <button class="btn btn-info">Güncelle</button>
     </div>
-}
+ }

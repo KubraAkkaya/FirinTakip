@@ -16,6 +16,17 @@ namespace BusinessLayer.Concrete
         {
             _faturaDal = faturaDal;
         }
+
+        public void FaturaDelete(Fatura fatura)
+        {
+            _faturaDal.Delete(fatura);
+        }
+
+        public Fatura GetByID(int id)
+        {
+            return _faturaDal.Get(x => x.ID == id);
+        }
+
         public List<Fatura> GetList()
         {
             return _faturaDal.List();

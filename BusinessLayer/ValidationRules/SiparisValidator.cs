@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRules
 {
-    public class SiparisValidator:AbstractValidator<Siparis>
+    public class SiparisValidator:AbstractValidator<Siparisler>
     {
     }
 }

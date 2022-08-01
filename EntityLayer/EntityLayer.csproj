@@ -50,12 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Concrete\Adres.cs" />
     <Compile Include="Concrete\Fatura.cs" />
     <Compile Include="Concrete\FirinTakipModel.cs" />
     <Compile Include="Concrete\Musteri.cs" />
     <Compile Include="Concrete\ServisAraci.cs" />
-    <Compile Include="Concrete\Siparis.cs" />
+    <Compile Include="Concrete\Siparisler.cs" />
     <Compile Include="Concrete\Talep.cs" />
     <Compile Include="Concrete\TeslimFisi.cs" />
     <Compile Include="Concrete\Urun.cs" />

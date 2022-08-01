@@ -11,5 +11,9 @@ namespace BusinessLayer.Abstract
     {
         List<Urun> GetList();
         void UrunAdd(Urun urun);
+
+        Urun GetByID(int id);
+        void UrunDelete(Urun urun);
+        void UrunUpdate(Urun urun);
     }
 }

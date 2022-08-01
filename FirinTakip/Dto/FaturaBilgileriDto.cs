@@ -11,5 +11,6 @@ namespace FirinTakip.Dto
         public string MusteriAdi { get; set; }
         public string UrunAdi { get; set; }
         public bool? OdemeDurumu { get; set; }
+        public int ID { get; set; }
     }
 }

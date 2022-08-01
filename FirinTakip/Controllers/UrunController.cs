@@ -13,6 +13,7 @@ namespace FirinTakip.Controllers
 {
     public class UrunController : Controller
     {
+        FirinTakipModel db = new FirinTakipModel();
         UrunManager um = new UrunManager(new EfUrunDal());
         public ActionResult Index()
         {
@@ -29,21 +30,63 @@ namespace FirinTakip.Controllers
         [HttpPost]
         public ActionResult AddUrun(Urun p)
         {
-            UrunValidator urunValidator=new UrunValidator();
-            ValidationResult results = urunValidator.Validate(p);
-            if (results.IsValid)
+            try
             {
-                um.UrunAdd(p);
+                Urun urun = new Urun();
+                urun.UrunAdi = p.UrunAdi;
+                urun.Aktiflik = true;
+                urun.AlmancaAdi = p.AlmancaAdi;
+                urun.Fiyat = p.Fiyat;
+                urun.TatliMi = p.TatliMi;
+
+                db.Uruns.Add(urun);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
+            catch (Exception)
             {
+
+                UrunValidator urunValidator = new UrunValidator();
+                ValidationResult results = urunValidator.Validate(p);
                 foreach (var item in results.Errors)
                 {
                     ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
+            //UrunValidator urunValidator=new UrunValidator();
+            //ValidationResult results = urunValidator.Validate(p);
+            //if (results.IsValid)
+            //{
+            //    um.UrunAdd(p);
+            //    return RedirectToAction("Index");
+            //}
+            //else
+            //{
+            //    foreach (var item in results.Errors)
+            ////    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            //    }
+            //}
             return View();
+        }
+        public ActionResult DeleteUrun(int id)
+        {
+            var urunValue = um.GetByID(id);
+            um.UrunDelete(urunValue);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult UpdateUrun(int id)
+        {
+            var urunValue = um.GetByID(id);
+            return View(urunValue);
+        }
+        [HttpPost]
+        public ActionResult UpdateUrun(Urun p)
+        {
+            um.UrunUpdate(p);
+            return RedirectToAction("Index");
         }
     }
 }

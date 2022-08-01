@@ -1,5 +1,5 @@
 ﻿@using EntityLayer.Concrete
-@model List<Sipari>
+@model List<Siparisler>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -17,7 +17,6 @@
         <th>Adet</th>
         <th>Tarih</th>
         <th>Ödeme Şekli</th>
-        <th>Servis Aracı</th>
         <th>Güncelle</th>
         <th>Sil</th>
     </tr>
@@ -32,16 +31,15 @@
             <th>@x.Adet</th>
             <th>@x.Tarih</th>
             <th>@x.OdemeSekli</th>
-            <th>@x.ServisAraci.Ad</th>
             <td><a href="#" class="btn btn-info">Düzenle</a></td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Siparis/DeleteSiparisler/@x.ID" class="btn btn-danger">Sil</a></td>
         </tr>
     }
 
 
 </table>
 
-<td><a href="/Siparis/AddSipari" class="btn btn-success">Siparis Ekle</a></td>
+<td><a href="/Siparis/AddSiparisler" class="btn btn-success">Siparis Ekle</a></td>
 <br />
 
 
