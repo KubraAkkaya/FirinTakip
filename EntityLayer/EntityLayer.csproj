@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\Admin.cs" />
     <Compile Include="Concrete\Fatura.cs" />
     <Compile Include="Concrete\FirinTakipModel.cs" />
     <Compile Include="Concrete\Musteri.cs" />

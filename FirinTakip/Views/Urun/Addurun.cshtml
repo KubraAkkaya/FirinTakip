@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+
+
 <h1>Yeni Müşteri Ekleme Sayfası</h1>
 <br />
 @using (Html.BeginForm("AddUrun", "Urun", FormMethod.Post))
@@ -22,11 +24,13 @@
         @Html.ValidationMessageFor(x => x.Fiyat)
         <br /><br />
         @Html.Label("Tatlı")
-        <span> | Tatlı: </span> @Html.CheckBoxFor(x => x.TatliMi.Value,true)
+        <span> : </span> @*@Html.CheckBoxFor(x => x.TatliMi.Value, true)*@
+        @Html.CheckBox("TatliMi", false)
         @Html.ValidationMessageFor(x => x.TatliMi)
         <br /><br />
         @Html.Label("Aktiflik ")
-        <span> | Aktiflik: </span> @Html.CheckBoxFor(x => x.Aktiflik.Value, true)işaretli gelmiyorrrrr
+        <span> : </span> @*@Html.CheckBoxFor(x => x.Aktiflik.Value, true)*@
+        @Html.CheckBox("Aktiflik", true)
         @Html.ValidationMessageFor(x => x.Aktiflik)
         <br /><br />
         <br /><br />

@@ -12,5 +12,6 @@ namespace BusinessLayer.Abstract
         List<Fatura> GetList();
         Fatura GetByID(int id);
         void FaturaDelete(Fatura fatura);
+        void FaturaUpdate(Fatura fatura);
     }
 }

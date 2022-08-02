@@ -31,7 +31,8 @@
         @Html.ValidationMessageFor(x => x.Adresi)
         <br /><br />
         @Html.Label("Aktiflik ")
-        <span> | Aktiflik: </span> @Html.CheckBoxFor(x => x.Aktiflik.Value, true)işaretli gelmiyorrrrr
+        <span> : </span> @*@Html.CheckBoxFor(x => x.Aktiflik.Value, true)*@
+        @Html.CheckBox("Aktiflik", true)
         @Html.ValidationMessageFor(x => x.Aktiflik)
         <br /><br />
         <button class="btn btn-info">Kaydet</button>

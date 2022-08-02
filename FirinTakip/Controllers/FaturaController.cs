@@ -32,16 +32,8 @@ namespace FirinTakip.Controllers
                            OdemeDurumu = f.OdemeDurumu,
                            FaturaTarihi= f.Tarih,
                            ID=f.ID
-                       };
-            //FaturaBilgileriDto dto = new FaturaBilgileriDto
-            //{
-            //    FaturaTarihi = DateTime.Now,
-            //    MusteriAdi = "gülşah",
-            //    OdemeDurumu = "ödendi",
-            //    UrunAdi = "bilgisayar"
-            //};
+                       }; 
 
-            //var values = fm.GetList();
             return View(list.ToList());
         }
 
@@ -49,10 +41,26 @@ namespace FirinTakip.Controllers
         {
             var silinecek=db.Faturas.Where(f => f.ID == id).First();
             //var faturaValue = fm.GetByID(id);
+            
             db.Faturas.Remove(silinecek);
             db.SaveChanges();
             //fm.FaturaDelete(silinecek);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult UpdateFatura(int id)
+        {
+            var faturaValue = fm.GetByID(id);
+            return View(faturaValue);
+        }
+        [HttpPost]
+        public ActionResult UpdateFatura(Fatura p)
+        {
+            var updateEdilecek=db.Faturas.Where(f => f.ID == p.ID).First(); 
+            fm.FaturaUpdate(p);
+            return RedirectToAction("Index");
+        }
+
     }
 }

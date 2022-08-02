@@ -15,5 +15,7 @@ namespace BusinessLayer.Abstract
 
         Siparisler GetByID(int id);
         void SiparisDelete(Siparisler siparisler);
+        void SiparisUpdate(Siparisler siparisler);
+
     }
 }

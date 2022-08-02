@@ -17,10 +17,12 @@ namespace FirinTakip.Controllers
         MusteriManager mm = new MusteriManager(new EfMusteriDal());
         // GET: Musteri
         FirinTakipModel db = new FirinTakipModel();
+        [Authorize]
         public ActionResult Index()
         {
-            var MusteriValues = mm.GetList();
-            return View(MusteriValues);
+            //var MusteriValues = mm.GetList();
+            var musteriList = db.Uruns.Where(k => k.Aktiflik == true).ToList();
+            return View(musteriList);
         }
 
         [HttpGet]
@@ -83,6 +85,7 @@ namespace FirinTakip.Controllers
         [HttpPost]
         public ActionResult UpdateMusteri(Musteri p)
         {
+
             mm.MusteriUpdate(p);
             return RedirectToAction("Index");
         }

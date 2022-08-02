@@ -17,8 +17,9 @@ namespace FirinTakip.Controllers
         UrunManager um = new UrunManager(new EfUrunDal());
         public ActionResult Index()
         {
-            var urunValues = um.GetList();
-            return View(urunValues);
+            //var urunValues = um.GetList();
+            var urunList = db.Uruns.Where(k => k.Aktiflik == true).ToList();
+            return View(urunList);
         }
 
         [HttpGet]
@@ -71,8 +72,11 @@ namespace FirinTakip.Controllers
         }
         public ActionResult DeleteUrun(int id)
         {
-            var urunValue = um.GetByID(id);
-            um.UrunDelete(urunValue);
+            var silineck = db.Uruns.Where(k => k.ID == id).First();
+            silineck.Aktiflik = false;
+            db.SaveChanges();
+            //var urunValue = um.GetByID(id);
+            //um.UrunDelete(urunValue);
             return RedirectToAction("Index");
         }
 
@@ -85,6 +89,7 @@ namespace FirinTakip.Controllers
         [HttpPost]
         public ActionResult UpdateUrun(Urun p)
         {
+
             um.UrunUpdate(p);
             return RedirectToAction("Index");
         }

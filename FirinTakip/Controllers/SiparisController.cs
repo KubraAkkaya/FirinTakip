@@ -76,5 +76,19 @@ namespace FirinTakip.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult UpdateSiparisler(int id)
+        {
+            var siparisValue = sm.GetByID(id);
+            return View(siparisValue);
+        }
+
+        [HttpPost]
+        public ActionResult UpdateSiparisler(Siparisler p)
+        {
+            sm.SiparisUpdate(p);
+            return RedirectToAction("Index");
+        }
+
     }
 }

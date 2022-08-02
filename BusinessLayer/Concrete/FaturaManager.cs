@@ -22,6 +22,11 @@ namespace BusinessLayer.Concrete
             _faturaDal.Delete(fatura);
         }
 
+        public void FaturaUpdate(Fatura fatura)
+        {
+            _faturaDal.Update(fatura);
+        }
+
         public Fatura GetByID(int id)
         {
             return _faturaDal.Get(x => x.ID == id);

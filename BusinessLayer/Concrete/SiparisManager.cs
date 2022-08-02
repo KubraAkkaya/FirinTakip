@@ -28,6 +28,7 @@ namespace BusinessLayer.Concrete
             return _siparisDal.List();
         }
 
+
         public void SiparisAdd(Siparisler siparis)
         {
             _siparisDal.Insert(siparis);
@@ -36,6 +37,12 @@ namespace BusinessLayer.Concrete
         public void SiparisDelete(Siparisler siparisler)
         {
             _siparisDal.Delete(siparisler);
+        }
+
+        public void SiparisUpdate(Siparisler siparisler)
+        {
+            _siparisDal.Update(siparisler);
+
         }
     }
 }

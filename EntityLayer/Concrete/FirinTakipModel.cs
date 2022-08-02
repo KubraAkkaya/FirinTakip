@@ -12,6 +12,7 @@ namespace EntityLayer.Concrete
         {
         }
 
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Fatura> Faturas { get; set; }
         public virtual DbSet<Musteri> Musteris { get; set; }
         public virtual DbSet<ServisAraci> ServisAracis { get; set; }
@@ -22,6 +23,10 @@ namespace EntityLayer.Concrete
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Admin>()
+                .Property(e => e.AdminRole)
+                .IsFixedLength();
+
             modelBuilder.Entity<Musteri>()
                 .Property(e => e.TelefonNo)
                 .IsUnicode(false);
