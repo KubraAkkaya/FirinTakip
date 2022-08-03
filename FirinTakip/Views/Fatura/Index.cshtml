@@ -9,10 +9,13 @@
 <br />
 <table class="table table-bordered ">
     <tr>
+        <th>Müşteri Id</th>
         <th>Müşteri Adı</th>
+        <th>Ürün Id</th>
         <th>Ürün Adı</th>
         <th>Tarih</th>
         <th>Ödeme Durumu</th>
+        <th>Aktiflik</th>
         <th>Düzenle</th>
         <th>Sil</th>
 
@@ -20,12 +23,15 @@
     @foreach (var x in Model)
     {
         <tr>
+            <td>@x.MusteriId</td>
             <td>@x.MusteriAdi</td>
+            <td>@x.UrunId</td>
             <td>@x.UrunAdi</td>
             <td>@x.FaturaTarihi</td>
             <td>@x.OdemeDurumu</td>
+            <td>@x.Aktiflik</td>
             <td><a href="/Fatura/UpdateFatura/@x.ID" class="btn btn-warning">Düzenle</a></td>
-            <td><a href="/Fatura/DeleteFatura/@x.ID" class="btn btn-danger">Sil</a></td> @*silme işlemi olmuyor!!!*@
+            <td><a href="/Fatura/DeleteFatura/@x.ID" class="btn btn-danger">Sil</a></td>
 
         </tr>
     }

@@ -9,8 +9,13 @@ namespace FirinTakip.Dto
     {
         public DateTime? FaturaTarihi { get; set; }
         public string MusteriAdi { get; set; }
+        public int MusteriId { get; set; }
         public string UrunAdi { get; set; }
+        public int UrunId { get; set; }
         public bool? OdemeDurumu { get; set; }
         public int ID { get; set; }
+        public bool? Aktiflik { get; set; }
+
+
     }
 }

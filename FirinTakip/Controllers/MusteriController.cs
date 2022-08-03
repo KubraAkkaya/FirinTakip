@@ -17,11 +17,11 @@ namespace FirinTakip.Controllers
         MusteriManager mm = new MusteriManager(new EfMusteriDal());
         // GET: Musteri
         FirinTakipModel db = new FirinTakipModel();
-        [Authorize]
+        [Authorize(Roles ="B")]
         public ActionResult Index()
         {
             //var MusteriValues = mm.GetList();
-            var musteriList = db.Uruns.Where(k => k.Aktiflik == true).ToList();
+            var musteriList = db.Musteris.Where(k => k.Aktiflik == true).ToList();
             return View(musteriList);
         }
 

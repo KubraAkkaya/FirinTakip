@@ -17,8 +17,10 @@ namespace FirinTakip.Controllers
         SiparisManager sm = new SiparisManager(new EfSiparisDal());
         public ActionResult Index()
         {
-            var siparisValues = sm.GetList();
-            return View(siparisValues);
+            //var siparisValues = sm.GetList();
+            var siparisList = db.Siparislers.Where(k => k.Aktiflik == true).ToList();
+
+            return View(siparisList);
         }
         [HttpGet]
         public ActionResult AddSiparisler()

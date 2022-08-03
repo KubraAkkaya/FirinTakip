@@ -31,11 +31,16 @@ namespace FirinTakip.Controllers
                            UrunAdi = u.UrunAdi,
                            OdemeDurumu = f.OdemeDurumu,
                            FaturaTarihi= f.Tarih,
-                           ID=f.ID
-                       }; 
+                           ID=f.ID,
+                           MusteriId = m.ID,
+                           UrunId = u.ID,
+                           Aktiflik = f.Aktiflik
+                       };
 
             return View(list.ToList());
         }
+
+
 
         public ActionResult DeleteFatura(int id)
         {
@@ -57,7 +62,6 @@ namespace FirinTakip.Controllers
         [HttpPost]
         public ActionResult UpdateFatura(Fatura p)
         {
-            var updateEdilecek=db.Faturas.Where(f => f.ID == p.ID).First(); 
             fm.FaturaUpdate(p);
             return RedirectToAction("Index");
         }

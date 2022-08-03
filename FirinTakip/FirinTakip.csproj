@@ -163,6 +163,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\FaturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -174,6 +175,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -181,6 +183,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
+    <Content Include="FirinWeb\error-404-10\css\style.css" />
+    <Content Include="FirinWeb\error-404-10\img\bg.jpg" />
+    <Content Include="FirinWeb\error-404-10\index.html" />
+    <Content Include="FirinWeb\error-404-10\readme.txt" />
     <Content Include="FirinWeb\firin\.babelrc.js" />
     <Content Include="FirinWeb\firin\.gitattributes" />
     <Content Include="FirinWeb\firin\.gitignore" />
@@ -2688,6 +2694,7 @@
     <Content Include="Views\Siparis\UpdateSiparisler.cshtml" />
     <Content Include="Views\Fatura\UpdateFatura.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\ErrorPage\Page404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
