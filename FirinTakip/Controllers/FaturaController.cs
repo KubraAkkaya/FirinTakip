@@ -17,13 +17,9 @@ namespace FirinTakip.Controllers
 
         public ActionResult Index()
         {
-            //var list = db.Musteris.Include(x => x.).Include(b => b. ).Select(k => new FaturaBilgileriDto
-            //{
-            //    FaturaTarihi = k.
-            //});
             var list = from m in db.Musteris 
                        join s in db.Siparislers on m.ID equals s.MusteriID
-                       join f in db.Faturas on s.ID equals f.ID
+                       join f in db.Faturas.Where(x=>x.Aktiflik==true) on s.ID equals f.ID
                        join u in db.Uruns on s.ID equals u.ID
                        select new FaturaBilgileriDto
                        {
@@ -34,35 +30,80 @@ namespace FirinTakip.Controllers
                            ID=f.ID,
                            MusteriId = m.ID,
                            UrunId = u.ID,
-                           Aktiflik = f.Aktiflik
+                           Aktiflik = f.Aktiflik,
+                           SiparisAdeti=s.Adet,
+                           UrunFiyat = u.Fiyat,
+                           ToplamTutar = u.Fiyat * s.Adet
                        };
 
             return View(list.ToList());
         }
 
-
+        public ActionResult Raporlama()
+        {
+            var values = db.Faturas.Where(k => k.Aktiflik == true).ToList();
+            return View(values);
+        }
 
         public ActionResult DeleteFatura(int id)
         {
             var silinecek=db.Faturas.Where(f => f.ID == id).First();
-            //var faturaValue = fm.GetByID(id);
-            
-            db.Faturas.Remove(silinecek);
+            //db.Faturas.Remove(silinecek);
+            //db.SaveChanges();
+            silinecek.Aktiflik = false;
             db.SaveChanges();
-            //fm.FaturaDelete(silinecek);
             return RedirectToAction("Index");
         }
+        FaturaBilgileriDto faturaBilgileriDto = new FaturaBilgileriDto();
 
         [HttpGet]
         public ActionResult UpdateFatura(int id)
         {
-            var faturaValue = fm.GetByID(id);
-            return View(faturaValue);
+            var faturaValue = db.Faturas.Where(f => f.ID == id).First();
+            var list = from m in db.Musteris
+                                     join s in db.Siparislers on m.ID equals s.MusteriID
+                                     join f in db.Faturas.Where(x => x.ID == id) on s.ID equals f.ID
+                                     join u in db.Uruns on s.ID equals u.ID
+                                     select new FaturaBilgileriDto
+                                     {
+                                         MusteriAdi = m.Ad,
+                                         UrunAdi = u.UrunAdi,
+                                         OdemeDurumu = f.OdemeDurumu,
+                                         FaturaTarihi = f.Tarih,
+                                         ID = f.ID,
+                                         MusteriId = m.ID,
+                                         UrunId = u.ID,
+                                         Aktiflik = f.Aktiflik,
+                                         SiparisAdeti = s.Adet,
+                                         UrunFiyat = u.Fiyat,
+                                         ToplamTutar = u.Fiyat * s.Adet
+                                     };
+            return View(faturaBilgileriDto);
+
+            //faturaBilgileriDto.FaturaTarihi = faturaValue.Tarih;
+            //faturaBilgileriDto.UrunFiyat = 456;
+            //faturaBilgileriDto.Aktiflik = true;
+            //faturaBilgileriDto.MusteriAdi = "jy";
+            ////var faturaValue = fm.GetByID(id);
+            //return View(faturaBilgileriDto);
         }
         [HttpPost]
-        public ActionResult UpdateFatura(Fatura p)
+        public ActionResult UpdateFatura(FaturaBilgileriDto p)
         {
-            fm.FaturaUpdate(p);
+            //FaturaBilgileriDto.UrunId = p.UrunId;
+            //FaturaBilgileriDto.ID = p.ID;
+            //FaturaBilgileriDto.UrunAdi = p.UrunAdi;
+            //FaturaBilgileriDto.Aktiflik = p.Aktiflik;
+            //FaturaBilgileriDto.MusteriId = p.MusteriId;
+            //FaturaBilgileriDto.MusteriAdi = p.MusteriAdi;
+            //FaturaBilgileriDto.SiparisAdeti = p.SiparisAdeti;
+            //FaturaBilgileriDto.OdemeDurumu= p.OdemeDurumu;
+            //FaturaBilgileriDto.FaturaTarihi= p.FaturaTarihi;
+            //FaturaBilgileriDto.UrunFiyat= p.UrunFiyat;
+            //FaturaBilgileriDto.ToplamTutar = p.ToplamTutar;
+
+            db.SaveChanges();
+            //fm.FaturaUpdate(p);
             return RedirectToAction("Index");
         }
 

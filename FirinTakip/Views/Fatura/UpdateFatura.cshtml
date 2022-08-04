@@ -1,6 +1,7 @@
 ﻿@using EntityLayer.Concrete
-@model List<FirinTakip.Dto.FaturaBilgileriDto>
+@model FirinTakip.Dto.FaturaBilgileriDto 
 
+     
 @{
     ViewBag.Title = "UpdateFatura";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -11,34 +12,34 @@
 @using (Html.BeginForm("UpdateFatura", "Fatura", FormMethod.Post))
 {
     <div class="form-group">
-        @*@Html.Label("Musteri Id")
+        @Html.Label("Musteri Id")
         @Html.TextBoxFor(x => x.MusteriId, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.MusteriId)*@
+        @Html.ValidationMessageFor(x => x.MusteriId)
         <br /><br />
-        @*@Html.Label("Musteri Adı")
+        @Html.Label("Musteri Adı")
         @Html.TextBoxFor(x => x.MusteriAdi, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.MusteriAdi)*@
+        @Html.ValidationMessageFor(x => x.MusteriAdi)
         <br /><br />
-        @*@Html.Label("Ürün ID")
+        @Html.Label("Ürün ID")
         @Html.TextBoxFor(x => x.UrunId, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.UrunId)*@
+        @Html.ValidationMessageFor(x => x.UrunId)
         <br /><br />
         @Html.Label("Ürün Adı")
-        @*@Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.UrunAdi)*@
+        @Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.UrunAdi)
         <br /><br />
         @Html.Label("Tarih")
-        @*@Html.TextBoxFor(x => x.FaturaTarihi, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.FaturaTarihi)*@
+        @Html.TextBoxFor(x => x.FaturaTarihi, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.FaturaTarihi)
         <br /><br />
         @Html.Label("Ödeme Durumu")
-        @*@Html.TextBoxFor(x => x.OdemeDurumu, new { @class = "form-control" })
-        @Html.ValidationMessageFor(x => x.OdemeDurumu)*@
+        @Html.TextBoxFor(x => x.OdemeDurumu, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.OdemeDurumu)
         <br /><br />
         @Html.Label("Aktiflik ")
-        <span> : </span> @*@Html.CheckBoxFor(x => x.Aktiflik.Value, true)*@
-        @*@Html.CheckBox("Aktiflik")
-        @Html.ValidationMessageFor(x => x.Aktiflik)*@
+        <span> : </span> @Html.CheckBoxFor(x => x.Aktiflik.Value, true)
+        @Html.CheckBox("Aktiflik")
+        @Html.ValidationMessageFor(x => x.Aktiflik)
         <br /><br />
         <button class="btn btn-info">Güncelle</button>
     </div>

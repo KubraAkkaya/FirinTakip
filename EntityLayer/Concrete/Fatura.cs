@@ -12,7 +12,7 @@ namespace EntityLayer.Concrete
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Fatura()
         {
-            TeslimFisis = new HashSet<TeslimFisi>();
+            Siparislers = new HashSet<Siparisler>();
         }
 
         public int ID { get; set; }
@@ -25,6 +25,6 @@ namespace EntityLayer.Concrete
         public bool? Aktiflik { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TeslimFisi> TeslimFisis { get; set; }
+        public virtual ICollection<Siparisler> Siparislers { get; set; }
     }
 }

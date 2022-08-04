@@ -15,6 +15,9 @@ namespace FirinTakip.Dto
         public bool? OdemeDurumu { get; set; }
         public int ID { get; set; }
         public bool? Aktiflik { get; set; }
+        public int? SiparisAdeti{ get; set; }
+        public decimal? UrunFiyat { get; set; }
+        public decimal? ToplamTutar { get; set; }
 
 
     }

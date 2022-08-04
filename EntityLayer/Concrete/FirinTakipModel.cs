@@ -18,7 +18,6 @@ namespace EntityLayer.Concrete
         public virtual DbSet<ServisAraci> ServisAracis { get; set; }
         public virtual DbSet<Siparisler> Siparislers { get; set; }
         public virtual DbSet<Talep> Taleps { get; set; }
-        public virtual DbSet<TeslimFisi> TeslimFisis { get; set; }
         public virtual DbSet<Urun> Uruns { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -47,11 +46,6 @@ namespace EntityLayer.Concrete
             modelBuilder.Entity<Siparisler>()
                 .Property(e => e.OdemeSekli)
                 .IsFixedLength();
-
-            modelBuilder.Entity<Siparisler>()
-                .HasMany(e => e.TeslimFisis)
-                .WithOptional(e => e.Siparisler)
-                .HasForeignKey(e => e.SiparisID);
 
             modelBuilder.Entity<Talep>()
                 .Property(e => e.Aciklama)

@@ -71,8 +71,11 @@ namespace FirinTakip.Controllers
 
         public ActionResult DeleteMusteri(int id)
         {
-            var musteriValue = mm.GetByID(id);
-            mm.MusteriDelete(musteriValue);
+            //var musteriValue = mm.GetByID(id);
+            //mm.MusteriDelete(musteriValue);
+            var silineck = db.Uruns.Where(k => k.ID == id).First();
+            silineck.Aktiflik = false;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

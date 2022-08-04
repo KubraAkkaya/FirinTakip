@@ -73,8 +73,11 @@ namespace FirinTakip.Controllers
         }
         public ActionResult DeleteSiparisler(int id)
         {
-            var siparisValue = sm.GetByID(id);
-            sm.SiparisDelete(siparisValue);
+            //var siparisValue = sm.GetByID(id);
+            //sm.SiparisDelete(siparisValue);
+            var silineck = db.Siparislers.Where(k => k.ID == id).First();
+            silineck.Aktiflik = false;
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
 

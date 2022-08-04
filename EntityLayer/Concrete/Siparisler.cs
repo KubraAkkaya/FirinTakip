@@ -9,12 +9,6 @@ namespace EntityLayer.Concrete
     [Table("Siparisler")]
     public partial class Siparisler
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Siparisler()
-        {
-            TeslimFisis = new HashSet<TeslimFisi>();
-        }
-
         public int ID { get; set; }
 
         public int? Adet { get; set; }
@@ -33,13 +27,14 @@ namespace EntityLayer.Concrete
 
         public bool? Aktiflik { get; set; }
 
+        public int? FaturaID { get; set; }
+
+        public virtual Fatura Fatura { get; set; }
+
         public virtual Musteri Musteri { get; set; }
 
         public virtual ServisAraci ServisAraci { get; set; }
 
         public virtual Urun Urun { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TeslimFisi> TeslimFisis { get; set; }
     }
 }
