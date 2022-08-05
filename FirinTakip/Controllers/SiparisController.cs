@@ -84,14 +84,26 @@ namespace FirinTakip.Controllers
         [HttpGet]
         public ActionResult UpdateSiparisler(int id)
         {
-            var siparisValue = sm.GetByID(id);
-            return View(siparisValue);
+            //var siparisValue = sm.GetByID(id);
+            var sip = db.Siparislers.Find(id);
+            return View(sip);
         }
 
         [HttpPost]
         public ActionResult UpdateSiparisler(Siparisler p)
         {
-            sm.SiparisUpdate(p);
+            var sip = db.Siparislers.Find(p.ID);
+            if (sip != null)
+            {
+                sip.UrunID = p.UrunID;
+                sip.Aktiflik = true;
+                sip.MusteriID = p.MusteriID;
+                sip.Adet = p.Adet;
+                sip.OdemeSekli = p.OdemeSekli;
+                sip.Tarih = p.Tarih;
+            }
+            db.SaveChanges();
+            //sm.SiparisUpdate(p);
             return RedirectToAction("Index");
         }
 
