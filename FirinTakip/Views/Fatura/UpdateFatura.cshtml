@@ -1,12 +1,11 @@
 ﻿@using EntityLayer.Concrete
-@model FirinTakip.Dto.FaturaBilgileriDto 
+@model FirinTakip.Dto.FaturaBilgileriDto
 
-     
+
 @{
     ViewBag.Title = "UpdateFatura";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <br />
 <h2>Fatura Güncelleme Sayfası</h2>
 @using (Html.BeginForm("UpdateFatura", "Fatura", FormMethod.Post))
@@ -37,7 +36,7 @@
         @Html.ValidationMessageFor(x => x.OdemeDurumu)
         <br /><br />
         @Html.Label("Aktiflik ")
-        <span> : </span> @Html.CheckBoxFor(x => x.Aktiflik.Value, true)
+        <span> : </span>
         @Html.CheckBox("Aktiflik")
         @Html.ValidationMessageFor(x => x.Aktiflik)
         <br /><br />

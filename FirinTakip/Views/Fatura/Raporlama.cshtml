@@ -46,7 +46,14 @@
                     <td>@x.SiparisAdeti</td>
                     <td>@x.UrunFiyat</td>
                     <td>@x.ToplamTutar</td>
-                    <td>@x.OdemeDurumu</td>
+                    @if (x.OdemeDurumu == true)
+                    {
+                        <td>Ödendi</td>
+                    }
+                    else
+                    {
+                        <td>Ödenmedi</td>
+                    }
                 </tr>
             }
 

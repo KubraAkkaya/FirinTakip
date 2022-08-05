@@ -72,6 +72,7 @@ namespace FirinTakip.Controllers
         }
         public ActionResult DeleteUrun(int id)
         {
+            
             var silineck = db.Uruns.Where(k => k.ID == id).First();
             silineck.Aktiflik = false;
             db.SaveChanges();
